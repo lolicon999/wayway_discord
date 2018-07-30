@@ -26,5 +26,10 @@ client.on('message', message => {
   }
 });
 
+var port = process.env.PORT || 3000;
+client.listen(port, "0.0.0.0", function() {
+console.log("Listening on Port 3000");
+});
+
 // Log our bot in
 client.login(token);
