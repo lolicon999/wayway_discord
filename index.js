@@ -20,10 +20,16 @@ client.on('ready', () => {
 // Create an event listener for messages
 client.on('message', message => {
   // If the message is "ping"
+  
   if (message.content === 'ping') {
     // Send "pong" to the same channel
     message.channel.send('pong');
   }
+  else if (message.content.match(/摸摸/)){
+	message.channel.send("蹭蹭"+message.author);
+  }
+  
+  
 });
 
 
