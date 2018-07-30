@@ -1,7 +1,7 @@
 var Discord = require('discord.io');
  
 var bot = new Discord.Client({
-    token: "fXwqWTR1eGxcvXDO9P62CtUAXyEZBERY",
+    token: "NDczNTIzNDMzMzE0MTg5MzEz.DkDTaw.RdeJTRCqtJ5JXzj4t9g5CHm4Lo0",
     autorun: true
 });
  
