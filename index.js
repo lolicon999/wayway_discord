@@ -1,19 +1,17 @@
-var Discord = require('discord.io');
- 
-var bot = new Discord.Client({
-    token: "NDczNTIzNDMzMzE0MTg5MzEz.DkDTaw.RdeJTRCqtJ5JXzj4t9g5CHm4Lo0",
-    autorun: true
+// Discord.js bot
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+client.on('ready', () => {
+    client.user.setActivity('https://git.io/d.js-heroku', {type: 'WATCHING'});
 });
- 
-bot.on('ready', function() {
-    console.log('Logged in as %s - %s\n', bot.username, bot.id);
+
+client.on('message', msg => {
+    if (!msg.content.startsWith(process.env.PREFIX) || !msg.guild) return;
+    const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
+    const args = msg.content.split(' ').slice(1).join(' ');
+    if (command === 'guide') return msg.channel.send('https://git.io/d.js-heroku');
+    else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 });
- 
-bot.on('message', function(user, userID, channelID, message, event) {
-    if (message === "ping") {
-        bot.sendMessage({
-            to: channelID,
-            message: "pong"
-        });
-    }
-});
+
+client.login(process.env.TOKEN);
